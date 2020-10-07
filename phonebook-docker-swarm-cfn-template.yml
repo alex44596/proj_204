@@ -192,7 +192,7 @@ Resources:
                   --image-scanning-configuration scanOnPush=false \
                   --image-tag-mutability MUTABLE \
                   --region ${AWS::Region}
-              docker build --force-rm -t "${ECR_REGISTRY}/${APP_REPO_NAME}:latest" ${GITHUB_REPO}
+              docker build --force-rm -t "${ECR_REGISTRY}/${APP_REPO_NAME}:latest" ${GITHUB_REPO}#main
               docker push "${ECR_REGISTRY}/${APP_REPO_NAME}:latest"
               mkdir -p /home/ec2-user/phonebook
               cd /home/ec2-user/phonebook
