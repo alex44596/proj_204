@@ -11,7 +11,7 @@ services:
         volumes:
             - db-data:/var/lib/mysql
         configs:
-            - source: table
+            - source: initialdb
               target: /docker-entrypoint-initdb.d/init.sql
         networks:
             - clarusnet
@@ -35,5 +35,5 @@ volumes:
     db-data:
 
 configs:
-    table:
+    initialdb:
         file: ./init.sql 
