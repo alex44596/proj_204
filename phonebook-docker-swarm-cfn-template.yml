@@ -199,6 +199,8 @@ Resources:
                   --image-tag-mutability MUTABLE \
                   --region ${AWS::Region}
               docker build --force-rm -t "${ECR_REGISTRY}/${APP_REPO_NAME}:latest" ${GITHUB_REPO}
+              aws ecr get-login-password --region ${AWS::Region} | docker login --username AWS
+              --password-stdin ${ECR_REGISTRY}
               docker push "${ECR_REGISTRY}/${APP_REPO_NAME}:latest"
               mkdir -p /home/ec2-user/phonebook
               cd /home/ec2-user/phonebook
